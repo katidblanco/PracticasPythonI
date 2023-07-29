@@ -4,16 +4,23 @@ def guardar():
     promedio = (num1.get() + num2.get())/2
     resultado.set("El Promedio es: " + str(promedio))
 
+def borrar():
+    num1.set("")
+    num2.set("")
+
 
 
 
 ventana=Tk()
 ventana.geometry("400x300")
 
-#Declaramos variable IntVar, DoubleVar, StringVar
+#Declaramos variable IntVar, DoubleVar, StringVar******
 num1 = IntVar()
 num2 = IntVar()
 resultado = StringVar()
+
+num1.set("")
+num2.set("")
 
 #Etiquetas************************
 textoEtiqueta1 = Label(ventana, text="Escribe la nota 1: ")
@@ -32,9 +39,13 @@ caja2.place(x=150, y=90)
 textoR = Label(ventana, textvariable=resultado)
 textoR.place(x=160, y=200)
 
-#Boton***************************
+#Botones***************************
 boton1= Button(ventana, text="Guardar", command=guardar, bg="#006", fg="white")
-boton1.place(x=180, y=140)
+boton1.place(x=210, y=140)
+
+boton2= Button(ventana, text="Borrar", command=borrar, bg="#006", fg="white")
+boton2.place(x=155, y=140)
+
 
 
 
