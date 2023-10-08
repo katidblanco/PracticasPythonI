@@ -6,7 +6,7 @@ def ingresarNotas(ingresar):
         print ("INGRESAR NOTAS -0- para salir")
         ingresar = "0"
         while ingresar != "menu": 
-              ingresar = input() #//5
+              ingresar = float(input()) #//5
                
               if int(ingresar)>1 and int(ingresar) <= 10: #// 5
                   notasValidas.append(ingresar)
@@ -20,27 +20,27 @@ def ingresarNotas(ingresar):
                       ingresar="menu"
 
 #FUNCION SUMAR NOTAS**************************                    
-def sumarNotas(suma):
+def sumarNotas(nota):
          print("_______________________________")
          print("SUMAR NOTAS INGRESADAS:\n")
-         i=0
          suma=0
-         while i<len(notasValidas):
-            suma= suma + int(notasValidas[i])
-            i=i+1
-
-         print ("La Suma de: " + str(notasValidas) + " es " + str(suma))
-         return suma
+         for nota in notasValidas:
+              suma = suma + nota
+              return suma                      
 
 #FUNCIÓN ELIMINAR NOTA************************
 def eliminarNota(eliminar):
          print("_______________________________")
          print("ELIMINAR NOTA:\n")
-         eliminar = print("Escribe la nota que desea eliminar") 
-         
-
+         notaEliminada = float(input("Escribe la nota que desea eliminar: ") )
+         notasValidas.remove(notaEliminada)
+         return notaEliminada
                       
-              
+
+
+
+
+
 #INICI0***************************************
 
 print("CALIFICACIONES")
@@ -74,10 +74,12 @@ while menu == "menu":
             print (nota)
 
     case "3":                      #SUMAR NOTAS
-        suma = sumarNotas(notasValidas) 
+        suma = sumarNotas(notasValidas)
+        print ("La Suma de: ", str(notasValidas) , " es " , str(suma)) 
 
     case "4":
-        eliminarNota(notasValidas) #ELIMINAR NOTAS
+        notaEliminada = eliminarNota(notasValidas) #ELIMINAR NOTAS
+        print("Nota ", str(notaEliminada), " con éxito" )
          
 
     case "5":                      #PROMEDIO DE NOTAS

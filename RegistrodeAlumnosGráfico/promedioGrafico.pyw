@@ -7,13 +7,15 @@ def guardar():
 def borrar():
     num1.set("")
     num2.set("")
+    resultado.set("")
 
 
 
 
 ventana=Tk()
 ventana.geometry("400x300")
-
+ventana.iconbitmap(r"D:\python\practicas\RegistrodeAlumnosGráfico\user-group.ico")
+ventana.title("Promedio")
 #Declaramos variable IntVar, DoubleVar, StringVar******
 num1 = IntVar()
 num2 = IntVar()

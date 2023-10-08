@@ -1,63 +1,67 @@
 from tkinter import *
 
-raiz=Tk()
-raiz.title("Registro de alumnos")
-raiz.resizable(1,1)
-raiz.iconbitmap(r"D:\python\practicas\RegistrodeAlumnosGráfico\user-group.ico")
-#raiz.geometry("350x350")
-#raiz.config(bg="#f4f0e5")
+def guardar():
+    nombresLista.append(nombre.get)
+    print(str(nombre))
+    # promedio = (num1.get() + num2.get())/2
+    # resultado.set("El Promedio es: " + str(promedio))
 
-miFrame = Frame(raiz, width="1200",height="1200" )
-miFrame.config(bg="#c3e6d4")
-miFrame.config(cursor="hand2")
-miFrame.pack()
+def borrar():
+    nombre.set("")
+    apellido.set("")
+    resultado.set("")
 
-#Cuadros ENTRY***************************************
+
+
+
+ventana=Tk()
+ventana.geometry("400x300")
+ventana.iconbitmap(r"D:\python\practicas\RegistrodeAlumnosGráfico\user-group.ico")
+ventana.title("Registro de alumnos")
+
+#Declaramos variable IntVar, DoubleVar, StringVar******
 nombre = StringVar()
-cuadroNombre = Entry(miFrame, textvariable=nombre)
-cuadroNombre.grid(row=0, column=1, padx=10, pady=10)
+apellido = StringVar()
+resultado = StringVar()
 
-cuadroNota = Entry(miFrame)
-cuadroNota.grid(row=1, column=1, padx=10, pady=10)
+nombre.set("")
+apellido.set("")
 
-#COMENTARIO TEXTO***************************************
-textoComentario = Text(miFrame, width="15", height="5")
-textoComentario.grid(row=3, column=1, padx=10, pady=10)
+nombresLista = []  #Creamos Lista Nombres****************
 
-scrollVert = Scrollbar(miFrame, command=textoComentario.yview)
-scrollVert.grid(row=3, column=2, sticky="nsew", pady=10)
+#Etiquetas************************
+nombretiqueta1 = Label(ventana, text="Nombre: ")
+nombretiqueta1.place(x=170, y=10)
 
-textoComentario.config(yscrollcommand=scrollVert.set)
+ApellidoEtiqueta2 = Label(ventana, text="Apellido: ")
+ApellidoEtiqueta2.place(x=170, y=70)
 
-#LABELS*************************************************
-nombreLabel=Label(miFrame, text="Nombre:")
-nombreLabel.grid(row=0, column=0, sticky="e", padx=10, pady=10)
-nombreLabel.config(bg="#c3e6d4")
+#Caja de texto********************
+cajaNombre = Entry(ventana, textvariable=nombre)
+cajaNombre.place(x=150, y=30)
+cajaApellido = Entry(ventana, textvariable=apellido)
+cajaApellido.place(x=150, y=90)
 
-notaLabel=Label(miFrame, text="Nota:")
-notaLabel.grid(row=1, column=0, sticky="e", padx=10, pady=10)
-notaLabel.config(bg="#c3e6d4")
+#Etiqueta resultado****************
+textoR = Label(ventana, textvariable=resultado)
+textoR.place(x=160, y=200)
 
-comentarioLabel=Label(miFrame, text="Comentario:")
-comentarioLabel.grid(row=3, column=0, sticky="e", padx=10, pady=10)
-comentarioLabel.config(bg="#c3e6d4")
+#Botones***************************
+botonGuardar= Button(ventana, text="Guardar", command=guardar, bg="#006", fg="white")
+botonGuardar.place(x=210, y=140)
 
-#FUNCION BOTON GUARDAR
-def codigoBoton():
-    nombresLista.append(cuadroNombre.get)
-    print(nombresLista)
-
-
-
-nombresLista = []
-
-#BOTON GUARDAR***************************************
-botonGuardar = Button(raiz, text="guardar", command=codigoBoton())
-botonGuardar.pack()
+botonBorrar= Button(ventana, text="Borrar", command=borrar, bg="#006", fg="white")
+botonBorrar.place(x=155, y=140)
 
 
 
-raiz.mainloop()
+
+
+
+
+
+
+ventana.mainloop()
 
 
 
