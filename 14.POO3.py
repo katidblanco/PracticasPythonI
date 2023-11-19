@@ -29,7 +29,7 @@ class AdministradorAlumnos:
         for nombre, nota in zip(self.nombres, self.notas):
             print("Nombre: {}, Nota: {}".format(nombre, nota))
 
-    def mostrar_notas_mayores_o_iguales_a_7(self):
+    def alum_aprobados(self):
         print("Alumnos con notas mayores o iguales a 7:")
         for nombre, nota in zip(self.nombres, self.notas):
             if nota >= 7:
@@ -50,7 +50,7 @@ class AdministradorAlumnos:
             elif opcion == '2':
                 self.listar_alumnos()
             elif opcion == '3':
-                self.mostrar_notas_mayores_o_iguales_a_7()
+                self.alum_aprobados()
             elif opcion == '4':
                 print("Programa finalizado.")
                 break
