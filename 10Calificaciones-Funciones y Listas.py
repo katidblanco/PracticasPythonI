@@ -1,4 +1,5 @@
-
+#Crear una aplicación que permita el ingreso de las notas de un estudiante y a través de la selección
+#de opciones permita: Ingresar notas, Mostrar notas, Sumar notas, Eliminar notas, Calcular el promedio y Salir
 
 #FUNCION INGRESAR NOTAS**************************
 def ingresarNotas(ingresar):
@@ -20,13 +21,13 @@ def ingresarNotas(ingresar):
                       ingresar="menu"
 
 #FUNCION SUMAR NOTAS**************************                    
-def sumarNotas(nota):
+def sumarNotas(notas):
          print("_______________________________")
          print("SUMAR NOTAS INGRESADAS:\n")
          suma=0
-         for nota in notasValidas:
+         for nota in notas:              
               suma = suma + nota
-              return suma                      
+         return suma                      
 
 #FUNCIÓN ELIMINAR NOTA************************
 def eliminarNota(eliminar):
@@ -37,7 +38,10 @@ def eliminarNota(eliminar):
          return notaEliminada
                       
 
-
+def promedioNotas(nota):
+     suma=sumarNotas(notasValidas)
+     promedio = suma/len(notasValidas)
+     return promedio
 
 
 
@@ -75,25 +79,18 @@ while menu == "menu":
 
     case "3":                      #SUMAR NOTAS
         suma = sumarNotas(notasValidas)
-        print ("La Suma de: ", str(notasValidas) , " es " , str(suma)) 
+        print ("La Suma de las notas es: ", suma) 
 
     case "4":
         notaEliminada = eliminarNota(notasValidas) #ELIMINAR NOTAS
-        print("Nota ", str(notaEliminada), " con éxito" )
+        print("Nota ", notaEliminada, " eliminada con éxito" )
          
 
     case "5":                      #PROMEDIO DE NOTAS
          print("_______________________________") 
          print("PROMEDIO DE NOTAS:\n")
-
-         i=0
-         suma=0
-         while i<len(notasValidas):
-            suma= suma + int(notasValidas[i])
-            i=i+1
-         
-         promedio = suma/(len(notasValidas))
-         print ("El promedio de : " + str(notasValidas) + " es " + str(promedio))
+         promedio=promedioNotas(notasValidas)      
+         print ("El promedio de las notas es: ",promedio)
 
     case "6":                     #SALIR*************
          print("_______________________________")
